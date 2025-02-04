@@ -27,7 +27,7 @@ export default function Home() {
 
         try {
             const color = product.color_rgb;
-            const url = new URL('/api/upload', window.location.origin);
+            const url = new URL('/upload', "http://stellens.ir");
             url.searchParams.append('color', color);
 
             const formData = new FormData()
