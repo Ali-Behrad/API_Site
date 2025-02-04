@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 12, "column": 0}, "map": {"version":3,"sources":["file:///home/t1kto0rx/Tech/Stellens/Demo_Next_V2.0/frontend/stellens_vto_v2.0/src/app/favicon.ico.mjs%20%28structured%20image%20object%29"],"sourcesContent":["import src from \"IMAGE\";\nexport default { src, width: 1274, height: 1280 }\n"],"names":[],"mappings":";;;AAAA;;uCACe;IAAE,KAAA,kHAAA,CAAA,UAAG;IAAE,OAAO;IAAM,QAAQ;AAAK"}},
+    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

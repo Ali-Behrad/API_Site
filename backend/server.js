@@ -59,7 +59,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 
     } catch (e) {
         console.log(e)
-        return res.status(500).json({ "error" : "Error to upload image"})
+        return res.status(500).json({ error : "Error to upload image-backend"})
     }
 })
 

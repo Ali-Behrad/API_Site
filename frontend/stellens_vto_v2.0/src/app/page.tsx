@@ -5,7 +5,6 @@ import { useState} from 'react';
 import { Product } from '@/types/ProductInterface';
 import { ProductSelection } from '@/components/ProductSelection';
 import { products } from './data/productsList';
-
 import axios from 'axios';
 
 export default function Home() {
@@ -28,8 +27,8 @@ export default function Home() {
 
         try {
             const color = product.color_rgb;
-            const url = new URL("/upload", "http://localhost:4000");
-            url.searchParams.append("color", color);
+            const url = new URL('/api/upload', window.location.origin);
+            url.searchParams.append('color', color);
 
             const formData = new FormData()
             formData.append("file", file);
@@ -37,28 +36,22 @@ export default function Home() {
             const response = await axios.post(url.toString(), formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
+
                 },
-                responseType: "blob"
+                responseType: 'blob',
             });
 
-            if (response.data.error) {
-                alert(response.data.error);
+            if (!response.data) {
                 console.log(response.data.error);
+                alert("An error occured");
                 return;
             }
 
-            if (!response.data) {
-                alert("Error Fetching Output Image");
-                console.log(response.data);
-                return
-            }
+            const blobUrl = URL.createObjectURL(response.data);
+            setOutputImage(blobUrl);
 
-            const blobURL = URL.createObjectURL(response.data);
-            setOutputImage(blobURL);
-            
-            console.log("output image set! ", response.data);
         } catch (error) {
-            console.error('Error uploading file:', error);
+            console.error('Error uploading file-frontend:', error);
         }
     };
 
